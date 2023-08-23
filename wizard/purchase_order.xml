@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_purchase_order_wizard_form" model="ir.ui.view">
+        <field name="name">purchase.order.wizard</field>
+        <field name="model">purchase.order.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="partner_id"/>
+                    <field name="purchase_request_id"/>
+                    <field name="pr_sdate"/>
+                </group>
+
+                <field name="order_line_ids" widget="one2many">
+                    <tree editable="bottom" create='False' edit="1">
+                        <field name="pur_req_line" />
+                        <field name="prod_name" force_save="1"/>
+                        <field name="product_id" force_save="1"/>
+                        <!--                            <field name="Description" />-->
+                        <!--                            <field name="Quantity" />-->
+                        <!--                            <field name="Ordered_Quantity"/>-->
+                        <!--                           Ordered_Quantity <field name="Quantity_To_order" readonly="0"/>-->
+                        <!--                            <field name="prod_Quantity" readonly="0"/>-->
+                        <!--                            <field name="prod_Ordered_Quantity"/>-->
+                        <field name="prod_Remaining_Quantity"/>
+                        <field name="prod_Quant_to_order"/>
+                        <!--                            <field name="Remaining_Quantity"/>-->
+                        <!--                            <field name="Total" string="Price"/>-->
+                    </tree>
+                </field>
+                <!--                    <field name="total"/>-->
+
+                <!--                </group>-->
+                <footer>
+                    <button name="create_purchase_order" string="Create Purchase Order" type="object"
+                            class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_purchase_order" model="ir.actions.act_window">
+        <field name="name">Purchase Order</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">purchase.order.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

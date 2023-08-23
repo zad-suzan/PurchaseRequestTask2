@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_purchase_request_new">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                        <div class="row mt16">
+                            <div class="col-6">
+                                <h2>Purchase Request</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <span>Name:
+                                    <span t-field="doc.name"/>
+                                </span>
+                            </div>
+                            <div class="col-6">
+                                <span>Requested By:
+                                    <span t-field="doc.req_by.name"/>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <span>Start Date:
+                                    <span t-field="doc.StartDate"/>
+                                </span>
+                            </div>
+                            <div class="col-6">
+                                <span>End Date:
+                                    <span t-field="doc.EndDate"/>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row" t-if="doc.state == 'reject'">
+                            <div class="col-12">
+                                <span>Rejection Reason:
+                                    <span t-field="doc.RejectionReason"/>
+                                </span>
+                            </div>
+                        </div>
+                        <p> </p>
+                        <table class="table table-sm table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Description</th>
+                                    <th>Quantity</th>
+                                    <th>Cost</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.orderlines" t-as="line">
+                                    <td>
+                                        <span t-field="line.product_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.Description"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.Quantity"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.Cost"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.Total"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col-12">
+                                <span>Total Price:
+                                    <span t-field="doc.TotalPrice"/>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <span>Status:
+                                    <span t-field="doc.state"/>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

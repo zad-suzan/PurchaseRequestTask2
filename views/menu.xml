@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+            id="purchase_main_root"
+            name="Purchase"
+            web_icon="Purchase,static/description/icon.png"
+            sequence="0"/>
+    <menuitem
+            id="orders_main_menu"
+            name="Orders"
+            parent="purchase_main_root"
+            sequence="1"/>
+</odoo>

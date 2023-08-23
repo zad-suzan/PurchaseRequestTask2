@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_purchase_purchase_request_line_tree" model="ir.ui.view">
+        <field name="name">purchase.request.line.tree</field>
+        <field name="model">purchase.request.line</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="product_id" string="Product"/>
+                <field name="Description"/>
+                <field name="Quantity"/>
+                <field name="Ordered_Quantity"/>
+                <field name="Quantity_To_order"/>
+                <field name="Cost"/>
+                <field name="Total"/>
+                <field name="pur_req_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_purchase_purchase_request_line_form" model="ir.ui.view">
+        <field name="name">purchase.request.line.form</field>
+        <field name="model">purchase.request.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="product_id"/>
+                            <field name="Description"/>
+                        </group>
+                        <group>
+                            <field name="Quantity"/>
+                            <field name="Cost"/>
+                            <field name="Total"/>
+                        </group>
+                        <field name="pur_req_id"/>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_purchase_purchase_request_line" model="ir.actions.act_window">
+        <field name="name">Purchase Request Lines</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">purchase.request.line</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first purchase request line!
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+            id="purchase_request_line_menu"
+            name="Purchase Request Lines"
+            action="action_purchase_purchase_request_line"
+            parent="orders_main_menu"
+            sequence="1"/>
+
+</odoo>
