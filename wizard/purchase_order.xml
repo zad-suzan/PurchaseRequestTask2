@@ -13,11 +13,14 @@
 
                 <field name="order_line_ids" widget="one2many">
                     <tree editable="bottom" create='False' edit="1">
+                        <field name="pur_req_line" invisible="True"/>
+                        <field name="prod_name" force_save="1" invisible="1"/>
                         <field name="product_id" force_save="1"/>
-                        <field name="prod_Remaining_Quantity"/>
+                        <field name="prod_Remaining_Quantity" force_save="1"/>
                         <field name="prod_Quant_to_order"/>
                     </tree>
                 </field>
+
                 <footer>
                     <button name="create_purchase_order" string="Create Purchase Order" type="object"
                             class="btn-primary"/>

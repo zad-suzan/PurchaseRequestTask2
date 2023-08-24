@@ -48,7 +48,6 @@ class PurchaseOrderWizard(models.TransientModel):
                 else:
                     raise ValidationError("Quantity to Order can't exceed Needed Quantity")
 
-
 class PurchaseOrderWizardLine(models.TransientModel):
     _name = "purchase.order.wizard.line"
     _description = "Purchase Order Line"
@@ -59,5 +58,5 @@ class PurchaseOrderWizardLine(models.TransientModel):
     prod_name = fields.Char(string="Product", readonly=True)
     prod_Quantity = fields.Float(readonly=True)
     prod_Ordered_Quantity = fields.Float(string="Ordered Quantity", readonly=True)
-    prod_Remaining_Quantity = fields.Float(string="Remaining Quantity", readonly=True)
+    prod_Remaining_Quantity = fields.Float(string="Remaining Quantity")
     prod_Quant_to_order = fields.Float(string="Quantity To Order")

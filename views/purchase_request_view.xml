@@ -26,9 +26,9 @@
                     <button name="submit_for_approval" string="Submit for Approval" states="draft" type="object"
                             class="oe_highlight"/>
                     <button name="action_to_cancel" string="Cancel" type="object" states="draft" class="oe_highlight"/>
-                    <button name="approve" string="Approve" type="object" states="to_be_approved" class="oe_highlight"/>
                     <button name="action_create_po" string="Create PO"
-                            type="object" class="btn-info" attrs="{'invisible':['|',('remove_po','=',False), ('state', '!=', 'approved')]}"/>
+                            type="object" class="btn-info"
+                            attrs="{'invisible':['|',('remove_po','=',False), ('state', '!=', 'approved')]}"/>
                     <button name="%(Purchase.action_reject_purchase_request)d" string="Reject"
                             type="action" states="to_be_approved" class="oe_highlight"/>
                     <button name="reset_to_draft" string="Reset to Draft" type="object" states="cancel"
@@ -39,8 +39,8 @@
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button class="oe_stat_button " type="object"
-                            name="action_view_pos"
-                            icon="fa-star">
+                                name="action_view_pos"
+                                icon="fa-star">
 
                             <field string="Purchase Orders" name="po_count" widget="statinfo"/>
                         </button>
