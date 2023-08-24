@@ -15,7 +15,6 @@ class PurchaseRequestLine(models.Model):
     Ordered_Quantity = fields.Float(string='Ordered Quantity',compute= '_onchange_ordered_quantity' )
     Quantity_To_order = fields.Float(string='Quantity_To_order', default=1)
     pur_req_id = fields.Many2one('purchase.request', string='Purchase Request')
-    # pur_req = fields.Many2one('purchase.request')
     po_id = fields.Many2one('purchase.order')
     po_lines = fields.One2many('purchase.order.line','pur_req_line')
 
@@ -24,18 +23,8 @@ class PurchaseRequestLine(models.Model):
         for rec in self:
             rec.Total = rec.Quantity * rec.Cost
 
-    # @api.depends('Quantity')
-    # def _compute_ordered_quantity(self):
-    #     for rec in self:
-    #         rec.Ordered_Quantity = 0
-
-    @api.depends()
     def _onchange_ordered_quantity(self):
         for rec in self:
-            pr = self.env['purchase.request'].search([])
-
-            print('_onchange_ordered_quantity',pr)
-            print(rec.po_lines)
             rec.Ordered_Quantity = sum(line.product_qty for line in rec.po_lines)
 
 

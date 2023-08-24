@@ -27,9 +27,6 @@
                             class="oe_highlight"/>
                     <button name="action_to_cancel" string="Cancel" type="object" states="draft" class="oe_highlight"/>
                     <button name="approve" string="Approve" type="object" states="to_be_approved" class="oe_highlight"/>
-<!--                    <button name="%(Purchase.action_purchase_order)d" string="Create PO"-->
-<!--                            type="action" class="btn-info" attrs="{'invisible':['|',('remove_po','=',False), ('state', '!=', 'approved')]}"/>-->
-
                     <button name="action_create_po" string="Create PO"
                             type="object" class="btn-info" attrs="{'invisible':['|',('remove_po','=',False), ('state', '!=', 'approved')]}"/>
                     <button name="%(Purchase.action_reject_purchase_request)d" string="Reject"
